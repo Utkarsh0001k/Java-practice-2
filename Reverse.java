@@ -1,8 +1,7 @@
 import java.util.Scanner;
-
-public class Palindrome {
+public class Reverse {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+         Scanner input = new Scanner(System.in);
         System.out.println("Enter your element number ");
         int num = input.nextInt();
         int[] array = new int[num];
@@ -12,20 +11,21 @@ public class Palindrome {
             array[i]=input.nextInt();
             i++;
         }
-        boolean isPal = ispalindrome(array);
-        if(isPal){
-            System.out.println("Your number is palnidrome");
-        }else{
-            System.out.println("Your number is not palindrome");
+        reverce(array);
+        System.out.println("Here is your reverce element ");
+        int n = 0;
+        while(n < array.length){
+            System.out.println(array[n]+" ");
+            n++;
         }
     }
-    public static boolean ispalindrome(int []array){
+    public static void reverce(int [] array){
         int i = 0;
         while(i < array.length / 2){
-            if(array[i] != array[(array.length - 1) - i])
-                return false;
-                i++;
+            int swap = array[i];
+            array[i] = array[(array.length - 1) - i];
+            array[(array.length - 1) - i] = swap;
+            i++;
         }
-        return true;
     }
 }
